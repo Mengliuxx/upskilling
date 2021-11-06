@@ -1,20 +1,21 @@
-1. C����gcc�ı��벽��
-        Ԥ������gcc -E hello.c -o hello.i
-	���룺  gcc -S hello.i -o hello.s
-	��ࣺ  gcc -c hello.o -o hello.o
-	���ӣ�  gcc    hello.o -o hello
+1. C语言编译过程
+    1.1 从语言编译成可执行程序进过4步：
+        预处理：gcc -E hello.c -o hello.i
+	编译：  gcc -S hello.i -o hello.s
+	汇编：  gcc -c hello.o -o hello.o
+	链接：  gcc    hello.o -o hello
 
-	a. Ԥ������
-		ͷ�ļ�չ����#include <stdio.h> �����ļ�stdio.h��Ԥ�����׶ν�stdio.h�ļ�������Ԥ�����ļ���
-		ɾ��ע�ͣ����ַ�ʽ //��  /* */
-		���滻�� #define ��������һ���꣬��Ԥ�����׶ν����滻��
-		�������룺���������� #if 0 -> #endif  �������� #if 1 -> #endif
-		�������﷨����
+	a. 预处理：头文件展开，宏定义展开，条件编译等，同时将代码中的注释删除，这里也不会检查语法错误
+		头文件展开：#include <stdio.h> 包含文件stdio.h（预处理阶段将stdio.h文件拷贝至预处理文件）
+		删除注释：两种方式 //，  /* */
+		宏替换： #define 代表声明一个宏，在预处理阶段将宏替换掉
+		条件编译：条件不成立 #if 0 -> #endif  条件成立 #if 1 -> #endif
+		不会检查语法错误：
 	
-	b. ���룺
-		��Ԥ�����ļ�����ɻ���ļ���
-		����﷨����
-	c. ��ࣺ
-		������ļ��������ɶ������ļ� .o
-	d. ���ӣ�
-		�������л�������ջ�ȣ������������ļ�
+	b. 编译：
+		将预处理文件编译成汇编文件。
+		检查语法错误
+	c. 汇编：
+		将汇编文件编译生成二进制文件 .o
+	d. 链接：
+		设置运行环境，堆栈等，链接其它库文件
