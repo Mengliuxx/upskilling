@@ -48,12 +48,18 @@
 	      int  	4字节
 	      short	2字节
 	      long	在windows 4字节，Linux 32位4字节，64位8字节
+	      long long	8字节
 	      char 	1字节	 
 	      float 	4字节
 	      double	8字节
 	定义：在内存开辟空间
 	初始化： 定义时赋值；
 	声明：没有开辟内存空间  extern告诉编译器这里有个变量
+
+
+	5.2 有符号和无符号
+		signed char num: 最高的bit为作为符号位，1 负数，0 正数。
+		unsigned char num :没有符号位，全部为数据位。
 
     6. const修饰
 	const修饰的变量不能通过变量名去修改
