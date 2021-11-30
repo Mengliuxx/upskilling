@@ -165,6 +165,19 @@ fgets会将空格\n都读取，导致读取结束的时候会有\n.例如”hell
 　　　Int   *p   4
 4.野指针：没有初始化的指针。
 5.空指针：int *p = NULL;给指针p的内容赋值为0，地址为0x0000 0000, NULL仅仅判断指针是否被使用。
+6. 数组作为函数的形参会退化为指针。
+　　　入参为int *， 会将int b[10]退化为int *b,所以n == 1 
+　　　Void print_arr(int b[10])
+ 	{
+　　　int n = sizeof(b)/sizeof(b[0]);
+　　　}
+　　　Int main()
+　　　{
+　　　Int a[10] = {1,2,3,4,5,6,7,8,9,10};
+　　　Print_arr(a);
+　　　}
+　　　正常：
+　　　Void print_arr(int *b, int len)//len 为数组长度
 
 
 	
